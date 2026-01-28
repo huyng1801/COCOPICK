@@ -117,7 +117,7 @@ const MatchScreen: React.FC<Props> = ({ settings, state, setState, onExit, onFin
         <button onClick={onUndo} className="p-1.5 landscape:p-1 text-slate-400 active:rotate-[-45deg] transition-transform flex-shrink-0"><RotateCcw size={18} className="landscape:w-4 landscape:h-4" /></button>
       </div>
 
-      <div className="flex-1 relative flex flex-col items-center justify-center p-2 landscape:p-1.5 min-h-0 overflow-hidden">
+      <div className="flex-1 relative flex flex-col items-center justify-center p-2 landscape:p-1.5 pb-40 landscape:pb-32 min-h-0 overflow-hidden">
         <div className="w-full h-full max-w-[1200px] mx-auto flex flex-col items-center justify-center relative min-h-0">
           <div className="w-full aspect-[16/9] landscape:aspect-[21/9] max-h-full flex rounded-xl landscape:rounded-lg overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.8)] border-2 landscape:border border-white/10 bg-slate-900/50 relative">
             {!visualSideSwapped ? renderSide(0) : renderSide(1)}
@@ -153,7 +153,7 @@ const MatchScreen: React.FC<Props> = ({ settings, state, setState, onExit, onFin
         </div>
       </div>
 
-      <div className="p-3 landscape:p-2 bg-slate-900/95 backdrop-blur-2xl border-t border-white/10 space-y-2 landscape:space-y-1.5 pb-2 landscape:pb-1.5 sm:pb-3 shrink-0 overflow-y-auto max-h-32 landscape:max-h-24">
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-3 landscape:p-2 bg-slate-900/95 backdrop-blur-2xl border-t border-white/10 space-y-2 landscape:space-y-1.5 pb-2 landscape:pb-1.5 sm:pb-3 overflow-y-auto max-h-32 landscape:max-h-24">
         <div className={`grid grid-cols-4 gap-2 landscape:gap-1.5 ${visualSideSwapped ? 'flex-row-reverse' : ''}`}>
           {/* Nút Đội A: Chỉ cho phép nhấn khi đang giao bóng */}
           <button 
