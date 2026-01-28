@@ -87,7 +87,7 @@ const SetupScreen: React.FC<Props> = ({ onStart, history, onClearHistory }) => {
       </header>
 
       {/* VÙNG CUỘN Ở GIỮA (THANH TRƯỢT) */}
-      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-6 scrollbar-hide pb-32">
+      <div className="flex-1 overflow-y-auto px-6 py-4 space-y-6 scrollbar-hide pb-40 sm:pb-40">
         {/* BẢNG THI ĐẤU SECTION */}
         <div className="p-4 bg-slate-900/80 rounded-2xl border border-white/5 space-y-3">
           <h2 className="font-black text-slate-400 uppercase text-[10px] tracking-widest flex items-center gap-2 px-1">
@@ -259,7 +259,7 @@ const SetupScreen: React.FC<Props> = ({ onStart, history, onClearHistory }) => {
       </div>
 
       {/* NÚT BẮT ĐẦU CỐ ĐỊNH Ở DƯỚI */}
-      <div className="p-6 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent shrink-0">
+      <div className="fixed bottom-0 left-0 right-0 z-50 p-6 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent">
         <button 
           onClick={handleStart}
           className="w-full bg-blue-600 hover:bg-blue-500 active:scale-95 transition-all text-white font-black py-4 rounded-2xl flex items-center justify-center gap-3 shadow-[0_20px_40px_rgba(37,99,235,0.3)] text-base uppercase tracking-widest border-b-4 border-blue-800"
