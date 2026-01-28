@@ -105,99 +105,99 @@ const MatchScreen: React.FC<Props> = ({ settings, state, setState, onExit, onFin
   };
 
   return (
-    <div className="flex flex-col h-screen bg-[#05070a] text-white overflow-hidden safe-area-padding">
-      <div className="flex items-center justify-between px-5 pt-12 pb-3 landscape:pt-2 landscape:pb-1.5 bg-slate-900 border-b border-white/5 z-50 landscape:gap-2">
-        <button onClick={onExit} className="p-2 landscape:p-1.5 text-slate-400 active:scale-90 transition-transform"><ArrowLeft size={20} className="landscape:w-4 landscape:h-4" /></button>
-        <div className="flex flex-col items-center landscape:gap-0">
-          <span className="text-[10px] landscape:text-[8px] font-black text-blue-500 uppercase tracking-[0.2em]">
+    <div className="flex flex-col h-screen w-screen bg-[#05070a] text-white overflow-hidden safe-area-padding">
+      <div className="flex items-center justify-between px-5 pt-8 landscape:pt-1.5 pb-2 landscape:pb-1 bg-slate-900 border-b border-white/5 z-50 landscape:gap-2 shrink-0">
+        <button onClick={onExit} className="p-1.5 landscape:p-1 text-slate-400 active:scale-90 transition-transform flex-shrink-0"><ArrowLeft size={18} className="landscape:w-4 landscape:h-4" /></button>
+        <div className="flex flex-col items-center min-w-0 flex-1 landscape:gap-0">
+          <span className="text-[9px] landscape:text-[7px] font-black text-blue-500 uppercase tracking-[0.15em] truncate">
             {settings.groupName ? `${settings.groupName} • ` : ''}CHẠM {settings.winningPoint}
           </span>
-          <span className="text-[9px] landscape:text-[7px] text-slate-600 font-bold uppercase italic">COCO PICK REFEREE</span>
+          <span className="text-[8px] landscape:text-[6px] text-slate-600 font-bold uppercase italic">COCO PICK REFEREE</span>
         </div>
-        <button onClick={onUndo} className="p-2 landscape:p-1.5 text-slate-400 active:rotate-[-45deg] transition-transform"><RotateCcw size={20} className="landscape:w-4 landscape:h-4" /></button>
+        <button onClick={onUndo} className="p-1.5 landscape:p-1 text-slate-400 active:rotate-[-45deg] transition-transform flex-shrink-0"><RotateCcw size={18} className="landscape:w-4 landscape:h-4" /></button>
       </div>
 
-      <div className="flex-1 relative flex flex-col items-center justify-center p-4 landscape:p-2 min-h-0">
+      <div className="flex-1 relative flex flex-col items-center justify-center p-2 landscape:p-1.5 min-h-0 overflow-hidden">
         <div className="w-full h-full max-w-[1200px] mx-auto flex flex-col items-center justify-center relative min-h-0">
-          <div className="w-full aspect-[16/9] landscape:aspect-[21/9] max-h-full flex rounded-[2rem] landscape:rounded-xl overflow-hidden shadow-[0_0_120px_rgba(0,0,0,0.9)] border-4 landscape:border-2 border-white/10 bg-slate-900/50 relative">
+          <div className="w-full aspect-[16/9] landscape:aspect-[21/9] max-h-full flex rounded-xl landscape:rounded-lg overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.8)] border-2 landscape:border border-white/10 bg-slate-900/50 relative">
             {!visualSideSwapped ? renderSide(0) : renderSide(1)}
-            <div className="w-3 landscape:w-2 bg-white relative z-20 shadow-[0_0_40px_rgba(255,255,255,0.4)]">
+            <div className="w-2 landscape:w-1 bg-white relative z-20 shadow-[0_0_40px_rgba(255,255,255,0.4)]">
               <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 border-l-2 border-dashed border-black/30 h-full"></div>
             </div>
             {!visualSideSwapped ? renderSide(1) : renderSide(0)}
 
             <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-30">
-              <div className="bg-[#0f172a]/95 backdrop-blur-3xl px-8 py-4 landscape:px-6 landscape:py-2 rounded-[3.5rem] landscape:rounded-2xl border-2 landscape:border border-white/10 shadow-[0_40px_80px_rgba(0,0,0,1)] flex items-center gap-10 landscape:gap-6 sm:gap-14">
+              <div className="bg-[#0f172a]/95 backdrop-blur-2xl px-6 py-2 landscape:px-4 landscape:py-1 rounded-2xl landscape:rounded-lg border landscape:border border-white/10 shadow-[0_30px_60px_rgba(0,0,0,0.8)] flex items-center gap-6 landscape:gap-4 sm:gap-10">
                 <div className="flex flex-col items-center">
-                  <span className={`text-[10px] landscape:text-[8px] sm:text-[12px] font-black uppercase tracking-widest mb-1 landscape:mb-0.5 ${servingTeam === (!visualSideSwapped ? 0 : 1) ? 'text-yellow-400' : 'text-slate-500'}`}>
+                  <span className={`text-[9px] landscape:text-[7px] sm:text-[11px] font-black uppercase tracking-tight mb-0.5 landscape:mb-0 ${servingTeam === (!visualSideSwapped ? 0 : 1) ? 'text-yellow-400' : 'text-slate-500'}`}>
                     {settings.teams[!visualSideSwapped ? 0 : 1].name}
                   </span>
-                  <span className="text-6xl landscape:text-4xl sm:text-8xl font-black text-white leading-none tabular-nums drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">{scores[!visualSideSwapped ? 0 : 1]}</span>
+                  <span className="text-5xl landscape:text-3xl sm:text-7xl font-black text-white leading-none tabular-nums drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">{scores[!visualSideSwapped ? 0 : 1]}</span>
                 </div>
-                <div className="w-[2px] h-12 landscape:h-8 sm:h-16 bg-white/10 rounded-full"></div>
+                <div className="w-[1.5px] h-10 landscape:h-6 sm:h-12 bg-white/10 rounded-full"></div>
                 <div className="flex flex-col items-center">
-                  <span className={`text-[10px] landscape:text-[8px] sm:text-[12px] font-black uppercase tracking-widest mb-1 landscape:mb-0.5 ${servingTeam === (!visualSideSwapped ? 1 : 0) ? 'text-yellow-400' : 'text-slate-500'}`}>
+                  <span className={`text-[9px] landscape:text-[7px] sm:text-[11px] font-black uppercase tracking-tight mb-0.5 landscape:mb-0 ${servingTeam === (!visualSideSwapped ? 1 : 0) ? 'text-yellow-400' : 'text-slate-500'}`}>
                     {settings.teams[!visualSideSwapped ? 1 : 0].name}
                   </span>
-                  <span className="text-6xl landscape:text-4xl sm:text-8xl font-black text-white leading-none tabular-nums drop-shadow-[0_15px_15px_rgba(0,0,0,0.6)]">{scores[!visualSideSwapped ? 1 : 0]}</span>
+                  <span className="text-5xl landscape:text-3xl sm:text-7xl font-black text-white leading-none tabular-nums drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]">{scores[!visualSideSwapped ? 1 : 0]}</span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="mt-4 landscape:mt-1.5 z-40">
-             <div className="bg-blue-600 text-white px-8 landscape:px-4 py-2 landscape:py-1 sm:py-3 rounded-2xl landscape:rounded-lg font-black shadow-[0_25px_60px_rgba(37,99,235,0.5)] border-b-8 landscape:border-b-4 border-blue-800 flex items-center justify-center transition-transform active:scale-95">
-                <span className="text-lg landscape:text-xs sm:text-xl font-black uppercase tracking-widest">LƯỢT PHÁT {serverNumber}</span>
+          <div className="mt-1.5 landscape:mt-1 z-40 flex-shrink-0">
+             <div className="bg-blue-600 text-white px-6 landscape:px-3 py-1.5 landscape:py-0.5 sm:py-2 rounded-lg landscape:rounded-md font-black shadow-[0_15px_40px_rgba(37,99,235,0.4)] border-b-4 landscape:border-b-2 border-blue-800 flex items-center justify-center transition-transform active:scale-95">
+                <span className="text-sm landscape:text-[10px] sm:text-base font-black uppercase tracking-wider">LƯỢT PHÁT {serverNumber}</span>
              </div>
           </div>
         </div>
       </div>
 
-      <div className="p-5 landscape:p-2.5 bg-slate-900/95 backdrop-blur-2xl border-t border-white/10 space-y-4 landscape:space-y-2 pb-20 landscape:pb-2 sm:pb-14 shrink-0">
-        <div className={`grid grid-cols-4 gap-3 landscape:gap-2 ${visualSideSwapped ? 'flex-row-reverse' : ''}`}>
+      <div className="p-3 landscape:p-2 bg-slate-900/95 backdrop-blur-2xl border-t border-white/10 space-y-2 landscape:space-y-1.5 pb-2 landscape:pb-1.5 sm:pb-3 shrink-0 overflow-y-auto max-h-32 landscape:max-h-24">
+        <div className={`grid grid-cols-4 gap-2 landscape:gap-1.5 ${visualSideSwapped ? 'flex-row-reverse' : ''}`}>
           {/* Nút Đội A: Chỉ cho phép nhấn khi đang giao bóng */}
           <button 
             onClick={() => onPoint(visualSideSwapped ? 1 : 0)}
             disabled={servingTeam !== (visualSideSwapped ? 1 : 0)}
-            className={`col-span-1 border transition-all py-6 landscape:py-2 sm:py-8 rounded-2xl landscape:rounded-lg flex flex-col items-center justify-center font-bold text-sm landscape:text-xs ${servingTeam === (visualSideSwapped ? 1 : 0) ? 'bg-blue-600/40 border-blue-500 text-blue-300 active:scale-95' : 'bg-white/5 border-white/5 text-slate-700 opacity-50 pointer-events-none'}`}
+            className={`col-span-1 border transition-all py-3 landscape:py-1.5 sm:py-5 rounded-lg landscape:rounded-md flex flex-col items-center justify-center font-bold text-xs landscape:text-[9px] ${servingTeam === (visualSideSwapped ? 1 : 0) ? 'bg-blue-600/40 border-blue-500 text-blue-300 active:scale-95' : 'bg-white/5 border-white/5 text-slate-700 opacity-50 pointer-events-none'}`}
           >
-            <span className="uppercase text-[9px] landscape:text-[7px] tracking-widest opacity-60 mb-1 landscape:mb-0.5">{settings.teams[visualSideSwapped ? 1 : 0].name}</span>
-            <span className="font-black text-xs landscape:text-[10px] sm:text-sm">+ ĐIỂM</span>
+            <span className="uppercase text-[8px] landscape:text-[6px] tracking-widest opacity-60 mb-0.5 landscape:mb-0">{settings.teams[visualSideSwapped ? 1 : 0].name}</span>
+            <span className="font-black text-[10px] landscape:text-[8px] sm:text-xs">+ ĐIỂM</span>
           </button>
 
           <button 
             onClick={onSideOut}
-            className="col-span-2 bg-red-600 hover:bg-red-500 active:scale-95 py-6 landscape:py-2 sm:py-8 rounded-2xl landscape:rounded-lg flex flex-col items-center justify-center font-black text-xl landscape:text-base sm:text-2xl shadow-2xl transition-all border-b-8 landscape:border-b-4 border-red-900"
+            className="col-span-2 bg-red-600 hover:bg-red-500 active:scale-95 py-3 landscape:py-1.5 sm:py-5 rounded-lg landscape:rounded-md flex flex-col items-center justify-center font-black text-base landscape:text-xs sm:text-xl shadow-xl transition-all border-b-4 landscape:border-b-2 border-red-900"
           >
-            {serverNumber === 1 ? 'LỖI (SANG S2)' : 'ĐỔI GIAO'}
+            {serverNumber === 1 ? 'LỖI (S2)' : 'ĐỔI GIAO'}
           </button>
 
           {/* Nút Đội B: Chỉ cho phép nhấn khi đang giao bóng */}
           <button 
             onClick={() => onPoint(visualSideSwapped ? 0 : 1)}
             disabled={servingTeam !== (visualSideSwapped ? 0 : 1)}
-            className={`col-span-1 border transition-all py-6 landscape:py-2 sm:py-8 rounded-2xl landscape:rounded-lg flex flex-col items-center justify-center font-bold text-sm landscape:text-xs ${servingTeam === (visualSideSwapped ? 0 : 1) ? 'bg-green-600/40 border-green-500 text-green-300 active:scale-95' : 'bg-white/5 border-white/5 text-slate-700 opacity-50 pointer-events-none'}`}
+            className={`col-span-1 border transition-all py-3 landscape:py-1.5 sm:py-5 rounded-lg landscape:rounded-md flex flex-col items-center justify-center font-bold text-xs landscape:text-[9px] ${servingTeam === (visualSideSwapped ? 0 : 1) ? 'bg-green-600/40 border-green-500 text-green-300 active:scale-95' : 'bg-white/5 border-white/5 text-slate-700 opacity-50 pointer-events-none'}`}
           >
-            <span className="uppercase text-[9px] landscape:text-[7px] tracking-widest opacity-60 mb-1 landscape:mb-0.5">{settings.teams[visualSideSwapped ? 0 : 1].name}</span>
-            <span className="font-black text-xs landscape:text-[10px] sm:text-sm">+ ĐIỂM</span>
+            <span className="uppercase text-[8px] landscape:text-[6px] tracking-widest opacity-60 mb-0.5 landscape:mb-0">{settings.teams[visualSideSwapped ? 0 : 1].name}</span>
+            <span className="font-black text-[10px] landscape:text-[8px] sm:text-xs">+ ĐIỂM</span>
           </button>
         </div>
         
-        <div className="grid grid-cols-3 gap-3 landscape:gap-2">
+        <div className="grid grid-cols-3 gap-2 landscape:gap-1.5">
           <button 
             onClick={onManualSwapSides}
-            className="bg-slate-800/80 hover:bg-slate-700 py-3 landscape:py-1.5 sm:py-4 rounded-2xl landscape:rounded-lg flex items-center justify-center gap-3 landscape:gap-1.5 text-[10px] landscape:text-[8px] sm:text-[12px] font-black text-blue-400 uppercase tracking-widest transition-colors border border-white/10 shadow-lg active:scale-95"
+            className="bg-slate-800/80 hover:bg-slate-700 py-2 landscape:py-1 sm:py-3 rounded-lg landscape:rounded-md flex items-center justify-center gap-2 landscape:gap-1 text-[9px] landscape:text-[7px] sm:text-[10px] font-black text-blue-400 uppercase tracking-wide transition-colors border border-white/10 shadow-md active:scale-95"
           >
-            <Repeat size={16} className="landscape:w-3 landscape:h-3" /> ĐỔI SÂN
+            <Repeat size={14} className="landscape:w-3 landscape:h-3" /> ĐỔI SÂN
           </button>
           <button 
             onClick={onUndo}
-            className="bg-red-600 hover:bg-red-500 py-3 landscape:py-1.5 sm:py-4 rounded-2xl landscape:rounded-lg flex items-center justify-center gap-3 landscape:gap-1.5 text-[10px] landscape:text-[8px] sm:text-[12px] font-black text-white uppercase tracking-widest transition-colors border border-white/10 shadow-lg active:scale-95"
+            className="bg-red-600 hover:bg-red-500 py-2 landscape:py-1 sm:py-3 rounded-lg landscape:rounded-md flex items-center justify-center gap-2 landscape:gap-1 text-[9px] landscape:text-[7px] sm:text-[10px] font-black text-white uppercase tracking-wide transition-colors border border-white/10 shadow-md active:scale-95"
           >
-            <RotateCcw size={16} className="landscape:w-3 landscape:h-3" /> HOÀN TÁC
+            <RotateCcw size={14} className="landscape:w-3 landscape:h-3" /> HOÀN TÁC
           </button>
-          <button onClick={() => {}} className="bg-slate-800/80 hover:bg-slate-700 py-3 landscape:py-1.5 sm:py-4 rounded-2xl landscape:rounded-lg flex items-center justify-center gap-3 landscape:gap-1.5 text-[10px] landscape:text-[8px] sm:text-[12px] font-black text-yellow-500 uppercase tracking-widest transition-colors border border-white/10 shadow-lg active:scale-95">
-            <AlertTriangle size={16} className="landscape:w-3 landscape:h-3" /> LỖI
+          <button onClick={() => {}} className="bg-slate-800/80 hover:bg-slate-700 py-2 landscape:py-1 sm:py-3 rounded-lg landscape:rounded-md flex items-center justify-center gap-2 landscape:gap-1 text-[9px] landscape:text-[7px] sm:text-[10px] font-black text-yellow-500 uppercase tracking-wide transition-colors border border-white/10 shadow-md active:scale-95">
+            <AlertTriangle size={14} className="landscape:w-3 landscape:h-3" /> LỖI
           </button>
         </div>
       </div>
